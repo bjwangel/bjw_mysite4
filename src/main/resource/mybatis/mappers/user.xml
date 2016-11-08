@@ -41,7 +41,7 @@
 		update users
 		   set
 		]]>		   
-		<if test="password != null and password != ''">
+		<if test="passWord != null and passWord != ''">
 			<![CDATA[
 		   	password=#{passWord },
 		   	]]>

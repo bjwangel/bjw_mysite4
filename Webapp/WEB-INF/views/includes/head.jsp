@@ -14,8 +14,8 @@
 				</c:when>
 				
 			  <c:otherwise>
-				<li><a href="${pageContext.request.contextPath }">회원정보수정</a></li>
-				<li><a href="${pageContext.request.contextPath }">로그아웃</a></li>
+				<li><a href="${pageContext.request.contextPath }/user/modifyform">회원정보수정</a></li>
+				<li><a href="${pageContext.request.contextPath }/user/logout">로그아웃</a></li>
 				<li>${authUser.name }님 안녕하세요 ^^;</li>
 			  </c:otherwise>
 			</c:choose>

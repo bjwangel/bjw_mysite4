@@ -53,7 +53,7 @@
 				return;
 			}
 			$.ajax({
-				url:"${pageContext.request.contextPath }/api/user?a=checkemail&email="+email,
+				url:"${pageContext.request.contextPath }/user/api?a=checkemail&email="+email,
 				type:"get",
 				dataType:"json",
 				data:"",

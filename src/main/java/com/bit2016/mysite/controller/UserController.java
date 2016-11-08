@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bit2016.mysite.service.UserService;
 import com.bit2016.mysite.vo.UserVo;
@@ -42,11 +41,9 @@ public class UserController {
 	
 	@RequestMapping( "/login" )
 	public String login(
-		@RequestParam( value="email", required=true, defaultValue="" ) String email,
-		@RequestParam( value="password", required=true, defaultValue="" ) String password,
-		HttpSession session ){
+		@ModelAttribute UserVo vo,HttpSession session ){
 		System.out.println( "로그인 시도");
-		UserVo userVo = userService.login(email, password);
+		UserVo userVo = userService.login(vo);
 		System.out.println("전달");
 		if( userVo == null ) {
 			return "redirect:/user/loginform?result=fail";
@@ -78,7 +75,7 @@ public class UserController {
 		
 		UserVo vo = userService.getUser( authUser.getNo() );
 		model.addAttribute( "userVo", vo );
-		return "user/modifyform";
+		return "user/ModifyForm";
 	}
 	
 	@RequestMapping( "/modify" )

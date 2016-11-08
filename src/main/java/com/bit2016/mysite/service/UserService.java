@@ -16,10 +16,10 @@ public class UserService {
 		userDao.insert(vo);
 	}
 	
-	public UserVo login( String email, String password ) {
+	public UserVo login(UserVo vo) {
 		System.out.println("전달 받음");
-		UserVo userVo = null;
-		userVo = userDao.get(email, password);
+		
+		UserVo userVo= userDao.get(vo);
 		System.out.println("다오 로그인");
 		return userVo;
 	}
@@ -30,5 +30,9 @@ public class UserService {
 	
 	public void updateUser( UserVo vo ) {
 		userDao.update(vo);
+	}
+	public boolean emailExist(String email){
+		return (userDao.get(email)) != null ;
+		
 	}
 }

@@ -9,14 +9,25 @@
 	xmlns:mvc="http://www.springframework.org/schema/mvc">
 
 	<!-- validator,conversionService,message를 자동으로 등록 -->
-	<mvc:annotation-driven />
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html; charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
 
 	<!-- 서블릿 컨테이너의 Default 서블릿 위임 핸들러 -->
 	<mvc:default-servlet-handler />
 
 
 	<!-- annotation 설정을 하겠다. -->
-	<context:annotation-config />
+	<context:annotation-config>
+	</context:annotation-config>
 
 	<!-- 패키지 com.bit2016.hellospring.controller 밑에 있는 클래스 중에 @Controller 를 달고 
 		있는 클래스의 객체를 생성하겠다. -->

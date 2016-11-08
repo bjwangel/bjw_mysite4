@@ -45,21 +45,21 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-		
-		
+
+
 
 		<!-- MyBatis -->
-      <dependency>
-         <groupId>org.mybatis</groupId>
-         <artifactId>mybatis</artifactId>
-         <version>3.2.2</version>
-      </dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.2.2</version>
+		</dependency>
 
-      <dependency>
-         <groupId>org.mybatis</groupId>
-         <artifactId>mybatis-spring</artifactId>
-         <version>1.2.0</version>
-      </dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.2.0</version>
+		</dependency>
 
 		<!-- oracle jdbc -->
 		<dependency>
@@ -67,6 +67,13 @@
 			<artifactId>ojdbc6</artifactId>
 			<version>11.1.0.7.0</version>
 		</dependency>
+		<!-- jackson -->
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-databind</artifactId>
+		<version>2.1.1</version>
+	</dependency>
+		
 	</dependencies>
 
 	<repositories>
@@ -76,6 +83,8 @@
 			<url>http://maven.jahia.org/maven2</url>
 		</repository>
 	</repositories>
+	
+	
 
 
 	<build>

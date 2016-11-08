@@ -1,8 +1,5 @@
 package com.bit2016.mysite.repository;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -16,14 +13,10 @@ public class UserDao {
 	private SqlSession sqlSession;
 	
 	// 인증(로그인)
-	public UserVo get(String email, String password) 
+	public UserVo get(UserVo vo) 
 		throws UserDaoException {
 		
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put( "email", email );
-		map.put( "password", password);
-				
-		return sqlSession.selectOne( "user.getByEmailAndPassword", map );
+		return sqlSession.selectOne( "user.getByEmailAndPassword", vo );
 	}
 	
 	// 이메일 체크
