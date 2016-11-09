@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bit2016.mysite.service.UserService;
 import com.bit2016.mysite.vo.UserVo;
+import com.bit2016.security.Auth;
+import com.bit2016.security.AuthUser;
 
 @Controller
 @RequestMapping( "/user" )
@@ -39,21 +41,21 @@ public class UserController {
 		return "user/joinsuccess";
 	}
 	
-	@RequestMapping( "/login" )
-	public String login(
-		@ModelAttribute UserVo vo,HttpSession session ){
-		System.out.println( "로그인 시도");
-		UserVo userVo = userService.login(vo);
-		System.out.println("전달");
-		if( userVo == null ) {
-			return "redirect:/user/loginform?result=fail";
-		}
-		System.out.println("인증 시도");
-		// 인증 처리
-		session.setAttribute( "authUser", userVo );
-		
-		return "redirect:/";
-	}
+//	@RequestMapping( "/login" )
+//	public String login(
+//		@ModelAttribute UserVo vo,HttpSession session ){
+//		System.out.println( "로그인 시도");
+//		UserVo userVo = userService.login(vo);
+//		System.out.println("전달");
+//		if( userVo == null ) {
+//			return "redirect:/user/loginform?result=fail";
+//		}
+//		System.out.println("인증 시도");
+//		// 인증 처리
+//		session.setAttribute( "authUser", userVo );
+//		
+//		return "redirect:/";
+//	}
 	
 	@RequestMapping( "/logout" )
 	public String logout( HttpSession session ) {
@@ -64,28 +66,21 @@ public class UserController {
 		return "redirect:/";
 	}
 	
+	@Auth
 	@RequestMapping( "/modifyform" )
-	public String modifyForm( HttpSession session, Model model ) {
-		UserVo authUser = (UserVo)session.getAttribute( "authUser" );
+	public String modifyForm( @AuthUser UserVo authUser, Model model ) {
 		
-		//접근제한
-		if( authUser == null ) {
-			return "redirect:/user/loginform";
-		}
-		
+		System.out.println(authUser.getNo());
 		UserVo vo = userService.getUser( authUser.getNo() );
 		model.addAttribute( "userVo", vo );
+		System.out.println("수정폼 끝");
 		return "user/ModifyForm";
 	}
 	
+	@Auth
 	@RequestMapping( "/modify" )
-	public String modify( HttpSession session, @ModelAttribute UserVo vo ){
-		UserVo authUser = (UserVo)session.getAttribute( "authUser" );
-		//접근 제한
-		if( authUser == null ) {
-			return "redirect:/user/loginform";
-		}
-		
+	public String modify(@AuthUser UserVo authUser, @ModelAttribute UserVo vo ){
+		System.out.println("수정중 ");
 		vo.setNo( authUser.getNo() );
 		userService.updateUser(vo);
 		authUser.setName( vo.getName() );

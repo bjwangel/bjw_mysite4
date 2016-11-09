@@ -20,7 +20,7 @@
 			<div id="content">
 				<div id="site-introduction">
 					<img id="profile"
-						src="${pageContext.request.contextPath }/images/ab.jpg"
+						src="${pageContext.request.contextPath }/images/main.jpeg"
 						style="width: 200px">
 					<h2>안녕하세요.변준우의 mysite에 오신 것을 환영합니다.</h2>
 					<p>
