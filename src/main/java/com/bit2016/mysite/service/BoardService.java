@@ -70,7 +70,7 @@ public class BoardService {
 		int prevPage = ( currentBlock > 1 ) ? ( currentBlock - 1 ) * PAGE_SIZE : 0;
 		int nextPage = ( currentBlock < blockCount ) ? currentBlock * PAGE_SIZE + 1 : 0;
 		int endPage = ( nextPage > 0 ) ? ( beginPage - 1 ) + LIST_SIZE : pageCount;
-		
+		System.out.println(totalCount +":"+pageCount+":"+blockCount+":");
 		//4. 리스트 가져오기
 		List<BoardVo> list = boardDao.getList( keyword, currentPage, LIST_SIZE );
 		

@@ -35,7 +35,8 @@ public class BoardController {
 				boardService.getMessageList( page, keyword );
 		
 		model.addAttribute( "map", map );
-		return "board/";
+		System.out.println("123");
+		return "board/list";
 	}
 
 	@RequestMapping( "/view" )
@@ -140,8 +141,6 @@ public class BoardController {
 		boardService.writeMessage( vo );
 		
 		return
-			"redirect:/board" +
-			"?p=" + page + 
-			"&kwd=" + WebUtil.encodeURL( keyword, "UTF-8");
+			"redirect:/board?p=" + page + "&kwd=" + WebUtil.encodeURL( keyword, "UTF-8");
 	}
 }
