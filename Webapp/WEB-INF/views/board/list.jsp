@@ -27,7 +27,7 @@
 						<th>작성일</th>
 						<th>&nbsp;</th>
 					</tr>
-					<c:forEach items="${map.list }"	var="vo" varStatus="status">			
+					<c:forEach items="${showAll.map.list}"	var="vo" varStatus="status">			
 						<tr>
 							<td>${map.totalCount - (map.currentPage - 1)*map.listSize - status.index }</td> 
 							<c:choose>

@@ -16,22 +16,20 @@ import com.bit2016.mysite.vo.GalleryVo;
 public class GalleryService {
 
 	private static final String SAVE_PATH = "/upload"; 
-	private static final String URL = "/gallery/assets/"; 
+	private static final String URL = "/assets/gallery"; 
 	
 	@Autowired
 	private GalleryDao galleryDao;
-	
 	
 	public List<GalleryVo> show(){
 		return galleryDao.show();
 	}
 	
 	
-	public String restore(MultipartFile multipartFile){
+	public String restore(MultipartFile multipartFile,GalleryVo vo){
+		GalleryVo galleryVo=null;
 		String url = "";
 		try {
-			GalleryVo galleryVo=null;
-			
 			if (multipartFile.isEmpty() == true) {
 				return url;
 			}
@@ -39,7 +37,13 @@ public class GalleryService {
 			String extName = originalFileName.substring(originalFileName.lastIndexOf('.') + 1,originalFileName.length());
 			String saveFileName = generateSaveFileName(extName);
 			Long fileSize = multipartFile.getSize();
-
+			
+			galleryVo.setOrg_file_name(originalFileName);
+			galleryVo.getSave_file_name();
+			galleryVo.setFile_ext_name(extName);
+			
+			
+			this.insert(galleryVo);
 			writeFile(multipartFile, saveFileName);
 
 			url = URL + saveFileName;
@@ -70,13 +74,13 @@ public class GalleryService {
 
 	private void writeFile(MultipartFile multipartFile, String saveFileName) throws IOException { 
 		byte[] fileData = multipartFile.getBytes();
-		FileOutputStream fos = new FileOutputStream(SAVE_PATH + "/" + saveFileName); 																		// 만들면
+		FileOutputStream fos = new FileOutputStream(SAVE_PATH + "/" + saveFileName); 
 																						
 		fos.write(fileData);
 	}
 	
-	public void insert(MultipartFile multipartFile){
-		
+	public void insert(GalleryVo galleryVo){
+		galleryDao.insert(galleryVo);
 	}
 	
 }

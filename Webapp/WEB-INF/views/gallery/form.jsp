@@ -21,8 +21,13 @@
 				</div>
 				
 				
-				<form action="">
-					<!--  만드시오  -->
+				<form method="post" action="upload" enctype="multipart/form-data">
+					<label>파일 첨부</label>
+					<input type="file" name="file">
+					<br><br>
+					
+					<input type="submit" value="upload">
+					
 				</form>
 				
 				

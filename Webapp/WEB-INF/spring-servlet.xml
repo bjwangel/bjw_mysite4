@@ -22,8 +22,7 @@
 
 		<!-- argument resolver -->
 		<mvc:argument-resolvers>
-			<bean
-				class="com.bit2016.security.AuthUserHandlerMethodArgumentResolver" />
+			<bean class="com.bit2016.security.AuthUserHandlerMethodArgumentResolver" />
 		</mvc:argument-resolvers>
 
 	</mvc:annotation-driven>
@@ -84,5 +83,16 @@
 			<bean class="com.bit2016.security.AuthInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
+
+	<!-- 6. MessageSource -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>messages/messages_ko</value>
+			</list>
+		</property>
+	</bean>
+
 
 </beans>

@@ -9,7 +9,7 @@
 			values(gallery_seq.nextval,#{org_file_name},#{save_file_name},#{comments},#{file_ext_name},sysdate,#{user_no})
 		]]>
 	</insert>
-	<select id="">
+	<select id="show">
 		<![CDATA[
 			select 
 				no,org_file_name,save_file_name,comments,file_ext_name,reg_date,user_no

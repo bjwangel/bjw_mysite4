@@ -19,56 +19,14 @@
 					<h1>갤러리</h1>
 					<a href="" id="upload-image">이미지 올리기</a>
 				</div>
+				<c:forEach items="${showAll.list }"	var="vo" varStatus="status">			
 				<ul>
 					<li>
-						<a href="" style="background-image:url('${pageContext.request.contextPath }/assets/gallery/im1.jpg')">im1.jpg</a>
+						<a href="" style="background-image:url('${pageContext.request.contextPath)${url}')">im1.jpg</a>
 					</li>	
-					<li>
-						<a href="" style="background-image:url('${pageContext.request.contextPath }/assets/gallery/im2.jpg')">im2.jpg</a>
-					</li>	
-					<li>
-						<a href="" style="background-image:url('${pageContext.request.contextPath }/assets/gallery/im3.jpg')">im3.jpg</a>
-					</li>	
-					<li>
-						<a href="" style="background-image:url('${pageContext.request.contextPath }/assets/gallery/im4.jpg')">im4.jpg</a>
-					</li>	
-					<li>
-						<a href="" style="background-image:url('${pageContext.request.contextPath }/assets/gallery/im5.jpg')">im5.jpg</a>
-					</li>	
-					<li>
-						<a href="" style="background-image:url('${pageContext.request.contextPath }/assets/gallery/im6.jpg')">im6.jpg</a>
-					</li>	
-					<li>
-						<a href="" style="background-image:url('${pageContext.request.contextPath }/assets/gallery/im7.jpg')">im7.jpg</a>
-					</li>	
-					<li>
-						<a href="" style="background-image:url('${pageContext.request.contextPath }/assets/gallery/im8.jpg')">im8.jpg</a>
-					</li>	
-					<li>
-						<a href="" style="background-image:url('${pageContext.request.contextPath }/assets/gallery/im9.jpg')">im9.jpg</a>
-					</li>	
-					<li>
-						<a href="" style="background-image:url('${pageContext.request.contextPath }/assets/gallery/im10.jpg')">im10.jpg</a>
-					</li>	
-					<li>
-						<a href="" style="background-image:url('${pageContext.request.contextPath }/assets/gallery/im11.jpg')">im11.jpg</a>
-					</li>	
-					<li>
-						<a href="" style="background-image:url('${pageContext.request.contextPath }/assets/gallery/im12.jpg')">im12.jpg</a>
-					</li>	
-					<li>
-						<a href="" style="background-image:url('${pageContext.request.contextPath }/assets/gallery/im13.jpg')">im13.jpg</a>
-					</li>	
-					<li>
-						<a href="" style="background-image:url('${pageContext.request.contextPath }/assets/gallery/im14.jpg')">im14.jpg</a>
-					</li>	
-					<li>
-						<a href="" style="background-image:url('${pageContext.request.contextPath }/assets/gallery/im15.jpg')">im15.jpg</a>
-					</li>	
-					<li>
-						<a href="" style="background-image:url('${pageContext.request.contextPath }/assets/gallery/imp1.png')">imp1.png</a>
-					</li>	
+					
 				</ul>	
+				</c:forEach>
 			</div>
 		</div>
 		<c:import url="/WEB-INF/views/includes/navigation.jsp">
